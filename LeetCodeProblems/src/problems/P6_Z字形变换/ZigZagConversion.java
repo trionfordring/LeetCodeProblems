@@ -1,7 +1,11 @@
 package problems.P6_Z字形变换;
 
-import java.util.ArrayList;
-
+/**
+ * 
+* @author Fordring
+* @date 2018年10月2日 下午6:00:53 
+*
+ */
 public class ZigZagConversion {
 	public String convert(String s, int numRows) {
 		if(numRows<=1){
