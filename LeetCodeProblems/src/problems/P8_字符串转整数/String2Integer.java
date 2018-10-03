@@ -14,6 +14,7 @@ public class String2Integer {
 		boolean space = true;
 		boolean one = false;
 		boolean zero = true;
+		boolean zhen = true;
 		for(int i=0;i<str.length();i++){
 			
 			if(		str.charAt(i)=='-'||
@@ -27,17 +28,19 @@ public class String2Integer {
 					str.charAt(i)=='7'||
 					str.charAt(i)=='8'||
 					str.charAt(i)=='9'){
-				if(str.charAt(i)=='-'&&one==true){
+				space = false;
+				if(str.charAt(i)=='-'&&(one||!zhen)){
 					break;
 				}
 				if(str.charAt(i)!='-'&&str.charAt(i)!='0'){
 					zero = false;
 				}else if(zero&&str.charAt(i)=='0'){
+					one = true;
 					continue;
 				}
 				one=true;
 				s+=str.charAt(i);
-				space = false;
+				
 				
 			}else if(!space){
 				break;
@@ -45,6 +48,7 @@ public class String2Integer {
 			
 			if(space&&str.charAt(i)=='+'){
 				space = false;
+				zhen = false;
 			}
 			if(space&&str.charAt(i)!=' '){
 				return 0;
@@ -56,7 +60,7 @@ public class String2Integer {
 		long res = 0L;
 		if(s.charAt(0)=='-'&&s.length()>11){
 			return Integer.MIN_VALUE;
-		}else if(s.length()>10){
+		}else if(s.charAt(0)!='-'&&s.length()>10){
 			return Integer.MAX_VALUE;
 		}
 		res = Long.valueOf(s);
