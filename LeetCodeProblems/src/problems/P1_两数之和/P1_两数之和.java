@@ -1,4 +1,4 @@
-package problems.P1_两数之和;
+ package problems.P1_两数之和;
 /**
  * P1两数之和<br/>
  * https://leetcode-cn.com/problems/two-sum/description/
